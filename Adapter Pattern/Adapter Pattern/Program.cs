@@ -179,30 +179,27 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // Пример создания игры
         ComputerGame game = new ComputerGame(
             "Epic Adventure",
             PegiAgeRating.P16,
-            60, // Бюджет в миллионах
-            4096, // GPU память в мегабайтах
-            50, // Дисковое пространство в ГБ
-            16, // ОЗУ в ГБ
-            4, // Ядра
-            3.5 // Частота в ГГц
+            60,
+            4096,
+            50,
+            16,
+            4,
+            3.5
         );
 
-        // Создание адаптера
         PCGame gameAdapter = new ComputerGameAdapter(game);
 
-        // Использование адаптера
         Console.WriteLine($"Title: {gameAdapter.getTitle()}");
         Console.WriteLine($"PEGI Allowed Age: {gameAdapter.getPegiAllowedAge()}");
         Console.WriteLine($"Is Triple A Game: {gameAdapter.isTripleAGame()}");
         Requirements reqs = gameAdapter.getRequirements();
-        Console.WriteLine($"GPU Memory: {reqs.getGpuGb() / 8.0} Gb"); // GPU Memory in gigabits
-        Console.WriteLine($"Disk Space: {reqs.getHDDGb() / 8.0} Gb"); // Disk space in gigabits
-        Console.WriteLine($"RAM: {reqs.getRAMGb() / 8.0} Gb"); // RAM in gigabits
-        Console.WriteLine($"CPU Speed: {reqs.getCpuGhz()} GHz"); // CPU speed in GHz
-        Console.WriteLine($"Cores: {reqs.getCoresNum()}"); // Number of cores
+        Console.WriteLine($"GPU Memory: {reqs.getGpuGb() / 8.0} Gb");
+        Console.WriteLine($"Disk Space: {reqs.getHDDGb() / 8.0} Gb");
+        Console.WriteLine($"RAM: {reqs.getRAMGb() / 8.0} Gb");
+        Console.WriteLine($"CPU Speed: {reqs.getCpuGhz()} GHz");
+        Console.WriteLine($"Cores: {reqs.getCoresNum()}");
     }
 }
